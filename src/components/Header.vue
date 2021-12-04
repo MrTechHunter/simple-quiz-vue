@@ -8,7 +8,9 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="#">Link</b-nav-item>
-          <b-nav-item href="#" disabled>Question {{ index + 1 }}/10</b-nav-item>
+          <b-nav-item href="#" disabled
+            >Question {{ correctCount }}/{{ totalCount }}</b-nav-item
+          >
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -18,7 +20,8 @@
 <script>
 export default {
   props: {
-    index: Number,
+    correctCount: Number,
+    totalCount: Number,
   },
 };
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <Header :index="this.index" />
-
+    <Header :correctCount="correctCount" :totalCount="totalCount" />
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3">
@@ -9,6 +8,7 @@
             v-if="questionList.length"
             :currentQuestion="questionList[index]"
             :next="next"
+            :increment="increment"
           />
         </b-col>
       </b-row>
@@ -31,6 +31,8 @@ export default {
     return {
       questionList: [],
       index: 0,
+      correctCount: 0,
+      totalCount: 0,
     };
   },
   methods: {
@@ -38,6 +40,12 @@ export default {
       if (this.index < 9) {
         this.index++;
       }
+    },
+    increment(is_correct) {
+      if (is_correct) {
+        this.correctCount++;
+      }
+      this.totalCount++;
     },
   },
   mounted: function () {
